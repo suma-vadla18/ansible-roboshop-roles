@@ -19,12 +19,12 @@
 - name: delete {{ component }} zip file
   ansible.builtin.file:
       path: /tmp/{{ component }}.zip
-      stste: absent
+      state: absent
 
 - name: downlod {{ component }} zip file
   ansible.builtin.get_url:
       url: https://roboshop-artifacts.s3.amazonaws.com/{{ component }}-v3.zip
-      dest: /tmp/{{ component }}.
+      dest: /tmp/{{ component }}.zip
       
 - name: unarchive {{ component }}
   ansible.builtin.unarchive:
