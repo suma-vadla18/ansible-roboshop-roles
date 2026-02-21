@@ -1,31 +1,20 @@
-
-- name: install python
-  ansible.builtin.dnf:
-    name: "{{ item }}"
-    state: present
-  loop:
-  - python3 
-  - gcc 
-  - python3-devel  
-
-- name: app-setup
+- name: app setup
   ansible.builtin.import_role:
-     name: common
-     tasks_from: app-setup.yaml
+    name: common
+    tasks_from: app-setup.yaml
 
-- name: install dependencie
-  ansible.builtin.pip:
-    requirements: requirements.txt
-    executable: pip3.9
-  args:
-    chdir: /app
+- name: python setup
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: python-setup.yaml
 
 - name: systemd setup
   ansible.builtin.import_role:
-      name: common
-      tasks_from: systemd-setup.yaml
-- name: start enable payment
+    name: common
+    tasks_from: systemd-setup.yaml
+
+- name: restart payment
   ansible.builtin.service:
-      name: payment
-      state: restarted
-      enabled: yes
+    name: payment
+    state: restarted
+    enabled: yes
