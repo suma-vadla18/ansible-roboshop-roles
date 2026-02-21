@@ -7,7 +7,7 @@ filters:
     instance-state-name: running
     tag:Name: frontend-dev
 compose:
-    ansible-host: private_ip_address
+    ansible_host: private_ip_address
 keyed_groups:
 - seperator": ""
   key: tags.Name
