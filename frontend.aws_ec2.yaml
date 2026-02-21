@@ -11,3 +11,4 @@ compose:
 keyed_groups:
 - separator: ''
   key: tags.Name | regex_replace('-.*$', '')
+#give it to chatgpt it will explain
