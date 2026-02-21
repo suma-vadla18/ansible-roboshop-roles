@@ -6,3 +6,6 @@ hostnames:
 filters:
     instance-state-name: running
     tag:Name: frontend-dev
+keyed_groups:
+- seperator": " "
+key: tags.Name
