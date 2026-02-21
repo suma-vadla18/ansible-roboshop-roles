@@ -10,4 +10,4 @@ compose:
     ansible-host: private_ip_address
 keyed_groups:
 - seperator": " "
-key: tags.Name
+  key: tags.Name
